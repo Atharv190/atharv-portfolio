@@ -31,33 +31,33 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 shadow-xl transition-transform duration-300 ${
+      className={`fixed w-full z-50 transition-transform duration-300 ${
         showNavbar ? 'translate-y-0' : '-translate-y-full'
-      } bg-gray-900 bg-opacity-70 backdrop-blur-lg border-b border-purple-500/30`}
+      } bg-gray-900/70 backdrop-blur-lg border-b border-purple-500/30`}
       style={{
         background:
-          'linear-gradient(90deg, rgba(139,92,246,0.3) 0%, rgba(59,130,246,0.3) 100%)',
-        backdropFilter: 'blur(12px)',
+          'linear-gradient(90deg, rgba(139,92,246,0.25) 0%, rgba(59,130,246,0.25) 100%)',
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
+
           {/* Logo */}
-          <div className="flex items-center">
-            <Code2 className="h-8 w-8 text-purple-400 drop-shadow" />
-            <span className="ml-2 text-xl font-bold text-purple-300 tracking-wider drop-shadow">
+          <div className="flex items-center gap-2">
+            <Code2 className="h-6 w-6 text-purple-400" />
+            <span className="text-lg font-semibold text-purple-300 tracking-wide">
               Atharv's Portfolio
             </span>
           </div>
 
           {/* Desktop Links */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-6">
+            <div className="flex items-center space-x-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="relative px-5 py-2 rounded-lg text-sm font-semibold text-gray-100 transition-all duration-300 ease-in-out hover:bg-purple-600/20 hover:text-white hover:scale-105 hover:shadow-lg"
+                  className="relative px-3 py-1.5 text-sm font-medium text-gray-100 transition-all duration-300 hover:text-white hover:bg-purple-600/20 rounded-md"
                 >
                   {link.name}
                 </a>
@@ -65,28 +65,29 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Toggle Button */}
+          {/* Mobile Toggle */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-purple-300 hover:text-white focus:outline-none"
+              className="p-1.5 text-purple-300 hover:text-white"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Nav Links */}
+      {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-gray-900 bg-opacity-90 backdrop-blur-md border-t border-purple-500/30">
-          <div className="px-4 pt-4 pb-6 space-y-2">
+        <div className="md:hidden bg-gray-900/90 backdrop-blur-md border-t border-purple-500/30">
+          <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="block px-4 py-2 rounded-md text-base font-medium text-purple-200 hover:text-white hover:bg-purple-600/20 transition-all duration-300"
+                className="block px-3 py-2 text-sm font-medium text-purple-200 hover:text-white hover:bg-purple-600/20 rounded-md transition"
+                onClick={() => setIsOpen(false)}
               >
                 {link.name}
               </a>

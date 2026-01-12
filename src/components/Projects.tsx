@@ -104,7 +104,7 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <span className="text-purple-400 text-sm tracking-widest uppercase">Portfolio</span>
+         
           <h2 className="text-4xl md:text-5xl font-bold text-white mt-2">
             Featured <span className="text-purple-400">Projects</span>
           </h2>

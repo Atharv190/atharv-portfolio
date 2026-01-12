@@ -135,70 +135,80 @@ const Hero = () => {
             </p>
           </motion.div>
 
-          <div className="flex justify-center items-center gap-6 flex-wrap">
-            <CollaborateButton />
-            <DownloadCVButton />
+          <div className="flex flex-col items-center gap-6">
 
-            <div className="flex gap-3">
-              {[{
-                href: 'https://github.com/Atharv190',
-                title: 'GitHub',
-                icon: <Github className="h-6 w-6" />,
-              }, {
-                href: 'https://www.linkedin.com/in/atharvmarathe19',
-                title: 'LinkedIn',
-                icon: <Linkedin className="h-6 w-6" />,
-              }, {
-                href: 'mailto:atharvmarathe5@gmail.com',
-                title: 'Email',
-                icon: <Mail className="h-6 w-6" />,
-              }].map(({ href, title, icon }) => (
-                <motion.a
-                  key={title}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  title={title}
-                  whileHover={{ scale: 1.3, color: '#a855f7' }} // purple glow
-                  className="p-2 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors flex items-center justify-center select-none"
-                >
-                  {icon}
-                </motion.a>
-              ))}
-              {/* Custom icons like CodeChef and LeetCode */}
-              <motion.a
-                href="https://www.codechef.com/users/atharvmarathe"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="CodeChef"
-                whileHover={{ scale: 1.3 }}
-                className="p-2 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors flex items-center justify-center select-none"
-              >
-                <img
-                  src="https://cdn.codechef.com/images/cc-logo.svg"
-                  alt="CodeChef"
-                  className="h-6 w-6"
-                />
-              </motion.a>
-              <motion.a
-                href="https://leetcode.com/u/Atharv_marathe19/"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="LeetCode"
-                whileHover={{ scale: 1.3 }}
-                className="p-2 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors flex items-center justify-center select-none"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="h-6 w-6"
-                >
-                  <path d="M16.233 12.645c.02-.03.038-.06.054-.088l2.872-5.109a.749.749 0 0 0-.69-1.115.742.742 0 0 0-.58.282l-2.79 3.328-2.998-3.1a.75.75 0 0 0-1.099 1.021l3.53 3.65-3.854 3.62a.749.749 0 0 0-.107.96.755.755 0 0 0 .63.361.742.742 0 0 0 .463-.17l5.459-4.412zM12.75 6a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-1.5 0V6.75a.75.75 0 0 1 .75-.75z" />
-                </svg>
-              </motion.a>
-            </div>
-          </div>
+  {/* Buttons – same line */}
+  <div className="flex justify-center items-center gap-6 flex-wrap">
+    <CollaborateButton />
+    <DownloadCVButton />
+  </div>
+
+  {/* Icons – next line */}
+  <div className="flex gap-3">
+    {[{
+      href: 'https://github.com/Atharv190',
+      title: 'GitHub',
+      icon: <Github className="h-6 w-6" />,
+    }, {
+      href: 'https://www.linkedin.com/in/atharvmarathe19',
+      title: 'LinkedIn',
+      icon: <Linkedin className="h-6 w-6" />,
+    }, {
+      href: 'mailto:atharvmarathe5@gmail.com',
+      title: 'Email',
+      icon: <Mail className="h-6 w-6" />,
+    }].map(({ href, title, icon }) => (
+      <motion.a
+        key={title}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        title={title}
+        whileHover={{ scale: 1.3, color: '#a855f7' }}
+        className="p-2 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors flex items-center justify-center select-none"
+      >
+        {icon}
+      </motion.a>
+    ))}
+
+    {/* CodeChef */}
+    <motion.a
+      href="https://www.codechef.com/users/atharvmarathe"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="CodeChef"
+      whileHover={{ scale: 1.3 }}
+      className="p-2 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors flex items-center justify-center select-none"
+    >
+      <img
+        src="https://cdn.codechef.com/images/cc-logo.svg"
+        alt="CodeChef"
+        className="h-6 w-6"
+      />
+    </motion.a>
+
+    {/* LeetCode */}
+    <motion.a
+      href="https://leetcode.com/u/Atharv_marathe19/"
+      target="_blank"
+      rel="noopener noreferrer"
+      title="LeetCode"
+      whileHover={{ scale: 1.3 }}
+      className="p-2 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors flex items-center justify-center select-none"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="h-6 w-6"
+      >
+        <path d="M16.233 12.645c.02-.03.038-.06.054-.088l2.872-5.109a.749.749 0 0 0-.69-1.115.742.742 0 0 0-.58.282l-2.79 3.328-2.998-3.1a.75.75 0 0 0-1.099 1.021l3.53 3.65-3.854 3.62a.749.749 0 0 0-.107.96.755.755 0 0 0 .63.361.742.742 0 0 0 .463-.17l5.459-4.412zM12.75 6a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-1.5 0V6.75a.75.75 0 0 1 .75-.75z" />
+      </svg>
+    </motion.a>
+  </div>
+
+</div>
+
         </div>
       </motion.div>
 
