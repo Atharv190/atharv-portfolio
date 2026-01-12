@@ -94,7 +94,8 @@ const Hero = () => {
             Crafting code with creativity...💡
           </motion.p>
 
-          <div className="flex items-center justify-center gap-4 mb-8 flex-wrap">
+          <div className="flex items-center justify-center gap-4 mb-8 flex-nowrap sm:flex-wrap">
+
             <span className="px-4 py-2 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 font-semibold animate-pulse-text shadow-sm">
               💻 Developer
             </span>
