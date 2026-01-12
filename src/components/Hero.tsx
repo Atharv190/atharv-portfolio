@@ -94,15 +94,18 @@ const Hero = () => {
             Crafting code with creativity...💡
           </motion.p>
 
-          <div className="flex items-center justify-center gap-4 mb-8 flex-nowrap sm:flex-wrap">
+          <div className="flex items-center justify-center gap-4 mb-8 flex-nowrap ">
 
-            <span className="px-4 py-2 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 font-semibold animate-pulse-text shadow-sm">
-              💻 Developer
-            </span>
+
+           <span className="px-4 py-2 whitespace-nowrap rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30 font-semibold animate-pulse-text shadow-sm">
+  💻 Developer
+</span>
+
             
-            <span className="px-4 py-2 rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30 font-semibold animate-pulse-text-longer-delay shadow-sm">
-              🚀 Tech Enthusiast
-            </span>
+           <span className="px-4 py-2 whitespace-nowrap rounded-full bg-pink-500/20 text-pink-400 border border-pink-500/30 font-semibold animate-pulse-text-longer-delay shadow-sm">
+  🚀 Tech Enthusiast
+</span>
+
           </div>
 
           <motion.div
