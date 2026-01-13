@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Menu,
-  X,
-  Code2,
-  Github,
-  Linkedin,
-} from "lucide-react";
+import { Menu, X, Code2, Github, Linkedin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
@@ -14,16 +8,33 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Home");
   const [scrollProgress, setScrollProgress] = useState(0);
 
+  // NEW STATES FOR AUTO-HIDE
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Hide on scroll down, show on scroll up / stop
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setShowNavbar(false);
+      } else {
+        setShowNavbar(true);
+      }
+
+      setScrolled(currentScrollY > 20);
+
       const totalHeight =
         document.documentElement.scrollHeight - window.innerHeight;
-      setScrollProgress((window.scrollY / totalHeight) * 100);
+      setScrollProgress((currentScrollY / totalHeight) * 100);
+
+      setLastScrollY(currentScrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -35,13 +46,13 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
-        scrolled ? "py-3" : "py-6"
-      }`}
+      className={`fixed top-0 left-0 w-full z-[100] transition-transform duration-500
+        ${showNavbar ? "translate-y-0" : "-translate-y-full"}
+        ${scrolled ? "py-3" : "py-6"}
+      `}
     >
       <nav
-        className={`
-          relative w-full transition-all duration-500
+        className={`relative w-full transition-all duration-500
           ${
             scrolled
               ? "bg-gradient-to-r from-black/60 via-[#0b0b1a]/60 to-black/60 backdrop-blur-2xl border-b border-white/10 shadow-2xl"
@@ -57,7 +68,7 @@ const Navbar = () => {
 
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex items-center justify-between h-14">
-
+            
             {/* Logo */}
             <motion.a
               href="#home"
@@ -125,15 +136,6 @@ const Navbar = () => {
                   <Linkedin size={18} />
                 </motion.a>
               </div>
-
-              {/* CTA */}
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.08 }}
-                whileTap={{ scale: 0.96 }}
-                className="relative px-6 py-2.5 rounded-full font-black text-xs uppercase tracking-tight text-white overflow-hidden"
-              >
-               </motion.a>
             </div>
 
             {/* Mobile Toggle */}
@@ -157,31 +159,20 @@ const Navbar = () => {
               exit={{ opacity: 0, y: -30 }}
               className="absolute top-full left-0 w-full bg-black/95 backdrop-blur-2xl border-b border-white/10 lg:hidden"
             >
-              <div className="px-6 py-8 flex flex-col gap-6">
+              <div className="px-8 py-10 flex flex-col gap-6">
                 {navLinks.map((link, i) => (
                   <motion.a
                     key={link.name}
                     href={link.href}
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.1 }}
+                    transition={{ delay: i * 0.08 }}
                     onClick={() => setIsOpen(false)}
-                    className="text-2xl font-black text-gray-500 hover:text-white uppercase tracking-tighter"
+                    className="text-2xl font-bold text-gray-400 hover:text-white uppercase tracking-tight"
                   >
                     {link.name}
                   </motion.a>
                 ))}
-                <div className="pt-8 border-t border-white/10 flex items-center justify-between">
-                  <div className="flex gap-6">
-                    <Github className="text-white" />
-                    <Linkedin className="text-white" />
-                  </div>
-                  <a
-                    href="#contact"
-                    className="text-purple-400 font-bold uppercase tracking-widest text-sm"
-                  >
-                  </a>
-                </div>
               </div>
             </motion.div>
           )}
