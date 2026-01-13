@@ -3,7 +3,6 @@ import {
   Menu,
   X,
   Code2,
-  Sparkles,
   Github,
   Linkedin,
 } from "lucide-react";
