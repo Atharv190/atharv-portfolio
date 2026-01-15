@@ -29,7 +29,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="py-16 relative overflow-hidden bg-[#030014]"
+      className="py-20 relative overflow-hidden bg-[#030014]"
     >
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none">

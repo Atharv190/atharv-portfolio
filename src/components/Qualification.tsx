@@ -35,7 +35,7 @@ const Qualification = () => {
   return (
     <section
       id="qualification"
-      className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white py-16 px-6"
+      className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white py-20 px-6"
     >
       {/* 🔥 Animated Heading (same as Featured Projects) */}
       <motion.div

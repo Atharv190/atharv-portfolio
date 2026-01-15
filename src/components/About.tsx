@@ -85,11 +85,9 @@ const About = () => {
             <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent my-8" />
 
             <p className="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto">
-              I focus on building practical applications by writing clean,
-              efficient code and designing simple, user-friendly interfaces.
-              Through hands-on projects and continuous learning, I aim to
-              strengthen my technical foundation and real-world development
-              skills.
+             I focus on building practical applications by writing clean and efficient code and creating simple user-friendly interfaces. 
+             I enjoy learning by doing and working on real projects that help me understand how applications are built and function in real-world scenarios. 
+             Through hands-on projects, regular practice and continuous learning, I aim to strengthen my technical foundation and improve my problem-solving and development skills.
             </p>
 
             <div className="mt-10 flex justify-center gap-8">

@@ -8,7 +8,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Home");
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // NEW STATES FOR AUTO-HIDE
+  // Auto-hide states
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -16,7 +16,6 @@ const Navbar = () => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Hide on scroll down, show on scroll up / stop
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setShowNavbar(false);
       } else {
@@ -39,6 +38,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
+    { name: "Qualification", href: "#qualification" },
     { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
     { name: "Contact", href: "#contact" },
@@ -48,7 +48,7 @@ const Navbar = () => {
     <header
       className={`fixed top-0 left-0 w-full z-[100] transition-transform duration-500
         ${showNavbar ? "translate-y-0" : "-translate-y-full"}
-        ${scrolled ? "py-3" : "py-6"}
+        ${scrolled ? "py-3" : "py-5"}
       `}
     >
       <nav
@@ -60,7 +60,7 @@ const Navbar = () => {
           }
         `}
       >
-        {/* Scroll Progress Bar */}
+        {/* Scroll Progress */}
         <div
           className="absolute top-0 left-0 h-[2px] bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500"
           style={{ width: `${scrollProgress}%` }}
@@ -68,7 +68,7 @@ const Navbar = () => {
 
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex items-center justify-between h-14">
-            
+
             {/* Logo */}
             <motion.a
               href="#home"
@@ -82,7 +82,7 @@ const Navbar = () => {
                 </div>
               </div>
               <div className="flex flex-col">
-                <span className="text-white font-black tracking-tight text-xl leading-none">
+                <span className="text-white font-black text-lg leading-none">
                   ATHARV
                 </span>
                 <span className="text-[10px] text-purple-400 font-bold tracking-[0.3em] uppercase mt-1">
@@ -116,26 +116,24 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Right Section */}
-            <div className="hidden md:flex items-center gap-6">
-              <div className="flex items-center gap-4 border-r border-white/10 pr-6">
-                <motion.a
-                  whileHover={{ y: -2, color: "#a855f7" }}
-                  href="https://github.com/Atharv190"
-                  target="_blank"
-                  className="text-gray-300"
-                >
-                  <Github size={18} />
-                </motion.a>
-                <motion.a
-                  whileHover={{ y: -2, color: "#3b82f6" }}
-                  href="https://www.linkedin.com/in/atharvmarathe19"
-                  target="_blank"
-                  className="text-gray-300"
-                >
-                  <Linkedin size={18} />
-                </motion.a>
-              </div>
+            {/* Right Icons */}
+            <div className="hidden md:flex items-center gap-4 border-r border-white/10 pr-6">
+              <motion.a
+                whileHover={{ y: -2, color: "#a855f7" }}
+                href="https://github.com/Atharv190"
+                target="_blank"
+                className="text-gray-300"
+              >
+                <Github size={18} />
+              </motion.a>
+              <motion.a
+                whileHover={{ y: -2, color: "#3b82f6" }}
+                href="https://www.linkedin.com/in/atharvmarathe19"
+                target="_blank"
+                className="text-gray-300"
+              >
+                <Linkedin size={18} />
+              </motion.a>
             </div>
 
             {/* Mobile Toggle */}
@@ -144,31 +142,34 @@ const Navbar = () => {
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2 text-gray-300 hover:text-white"
               >
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
+                {isOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* ✅ SMALLER MOBILE MENU */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -30 }}
+              initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -30 }}
-              className="absolute top-full left-0 w-full bg-black/95 backdrop-blur-2xl border-b border-white/10 lg:hidden"
+              exit={{ opacity: 0, y: -20 }}
+              className="absolute top-full left-0 w-full
+                         bg-black/90 backdrop-blur-xl
+                         border-b border-white/10 lg:hidden"
             >
-              <div className="px-8 py-10 flex flex-col gap-6">
+              <div className="px-6 py-6 flex flex-col gap-4">
                 {navLinks.map((link, i) => (
                   <motion.a
                     key={link.name}
                     href={link.href}
-                    initial={{ x: -20, opacity: 0 }}
+                    initial={{ x: -15, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.08 }}
+                    transition={{ delay: i * 0.06 }}
                     onClick={() => setIsOpen(false)}
-                    className="text-2xl font-bold text-gray-400 hover:text-white uppercase tracking-tight"
+                    className="text-lg font-semibold text-gray-300
+                               hover:text-white uppercase tracking-wide"
                   >
                     {link.name}
                   </motion.a>

@@ -15,9 +15,9 @@ const Projects = () => {
   const projects = [
     {
       title: "Text File Hider",
-      description:
-        "A secure Java desktop application that allows users to encrypt and decrypt text files with robust password protection.",
-      image: "/images/text-file-hider.png",
+     description:
+  "A Java desktop application that allows users to hide and unhide text files using a password. It helps protect files from unauthorized access and stores user details using MySQL with JDBC."
+      ,image: "/images/text-file-hider.png",
       icon: <FileText className="h-6 w-6" />,
       tech: ["Java", "MySQL", "JDBC", "Swing"],
       github: "https://github.com/Atharv190/Text-File-Hider",
@@ -25,7 +25,7 @@ const Projects = () => {
     {
       title: "Internet Service Complaint System",
       description:
-        "A Java-based web system to efficiently log, track and manage internet service complaints.",
+  "A Java-based web application that allows users to register internet service complaints, track their status and manage complaint records efficiently. The system helps administrators and service staff handle complaints in an organized way, improving response time and service management.",
       image: "/images/int1.png",
       icon: <Wifi className="h-6 w-6" />,
       tech: ["JSP", "Servlets", "MySQL", "Bootstrap"],
@@ -34,7 +34,7 @@ const Projects = () => {
     {
       title: "Alumni Tracking Portal",
       description:
-        "A web-based alumni management system designed for educational institutions to track alumni records efficiently.",
+  "A web-based alumni management system developed for educational institutions to store and track alumni records. The portal also helps current students connect with alumni for guidance, networking, and career support, improving engagement between students and alumni.",
       image: "/images/alumni-portal.jpeg",
       video: "https://github.com/Atharv190/atharv-portfolio-new/releases/download/v1.0-demo/alumni-demo.mp4",
       icon: <Users className="h-6 w-6" />,
@@ -43,9 +43,10 @@ const Projects = () => {
       hasDemo: true,
     },
     {
-      title: "Motor Service Reminder App",
+      title: "Vehicle Service Tracker",
       description:
-        "Spring Boot-powered backend for vehicle service management that automates service reminders.",
+  "A Spring Boot–based backend application that stores and tracks vehicle service details such as service history and dates. It helps users maintain service records through REST APIs for easy access and future reference."
+,
       image: "/images/mot1.jpeg",
       icon: <Wrench className="h-6 w-6" />,
       tech: ["Spring Boot", "Hibernate", "REST API"],
