@@ -94,7 +94,7 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-4 flex flex-col md:flex-row items-center justify-between gap-3">
 
           <p className="text-[11px] text-gray-500">
-            © {new Date().getFullYear()} Atharv Marathe
+           © 2026 Atharv Marathe. Built with React & Tailwind CSS.
           </p>
 
           {/* Social Icons */}

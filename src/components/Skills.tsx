@@ -14,7 +14,7 @@ const Skills = () => {
         { name: "Java", icon: <FileCode className="h-4 w-4 text-red-400" /> },
         { name: "C", icon: <FileCode className="h-4 w-4 text-blue-300" /> },
         { name: "Python", icon: <FileCode className="h-4 w-4 text-yellow-400" /> },
-        { name: "Spring", icon: <Code2 className="h-4 w-4 text-green-400" /> },
+        { name: "JavaScript", icon: <Code2 className="h-4 w-4 text-green-400" /> },
       ],
     },
     {

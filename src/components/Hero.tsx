@@ -53,7 +53,7 @@ const DownloadCVButton = () => (
 );
 
 const Hero = () => {
-  const roleText = "Aspiring Full-Stack Developer";
+  const roleText = "MERN Stack Developer | Problem Solver";
 
   return (
     <section
@@ -139,11 +139,11 @@ const Hero = () => {
           <div className="flex justify-center gap-4 mt-8 mb-8 flex-wrap">
             <span className="px-4 py-2 rounded-full bg-purple-500/10
                              text-purple-400 border border-purple-500/30 text-sm font-medium">
-              💻 Developer
+              💻 MERN Stack Developer
             </span>
             <span className="px-4 py-2 rounded-full bg-blue-500/10
                              text-blue-400 border border-blue-500/30 text-sm font-medium">
-              🚀 Tech Enthusiast
+              🚀 DSA & Tech Enthusiast
             </span>
           </div>
 
@@ -160,9 +160,7 @@ const Hero = () => {
               <span className="text-white font-semibold">
                 Atharv Marathe
               </span>
-              , a Computer Engineering student interested in building practical
-                and efficient software solutions. I enjoy learning through real
-                projects, problem-solving and writing clean, understandable code.
+              , a Final-Year Computer Engineering student and passionate MERN Stack Developer focused on building modern, scalable, and user-friendly web applications while continuously improving my problem-solving and development skills.
                 </p>
           </motion.div>
 
