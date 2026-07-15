@@ -53,7 +53,7 @@ const DownloadCVButton = () => (
 );
 
 const Hero = () => {
-  const roleText = "MERN Stack Developer | Problem Solver";
+  const roleText = "MERN Stack Developer";
 
   return (
     <section
