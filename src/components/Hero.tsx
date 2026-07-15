@@ -143,7 +143,7 @@ const Hero = () => {
             </span>
             <span className="px-4 py-2 rounded-full bg-blue-500/10
                              text-blue-400 border border-blue-500/30 text-sm font-medium">
-              
+              🚀 DSA & Tech Enthusiast
             </span>
           </div>
 
