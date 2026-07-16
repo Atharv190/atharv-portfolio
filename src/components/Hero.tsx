@@ -1,7 +1,6 @@
-import { Github, Linkedin, Terminal, Code, Cpu, Mail } from "lucide-react";
+import { Github, Linkedin, Terminal, Code, Cpu, Mail, FileDown } from "lucide-react";
 import { motion } from "framer-motion";
 
-// Main container animation
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
   visible: {
@@ -11,14 +10,13 @@ const fadeInUp = {
   },
 };
 
-// Staggered Text Variants
 const sentence = {
   hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
-      delayChildren: 0.8, // Starts after the name appears
-      staggerChildren: 0.04, // Speed of each letter
+      delayChildren: 0.8, 
+      staggerChildren: 0.04, 
     },
   },
 };
@@ -37,36 +35,41 @@ const ButtonStyles =
 
 const DownloadCVButton = () => (
   <motion.a
-    href="/images/Resume_Atharv.pdf"
-    target="_blank"
-    rel="noopener noreferrer"
-    whileHover={{
-      scale: 1.05,
-      backgroundColor: "rgba(255, 255, 255, 0.15)",
-      boxShadow: "0 0 20px rgba(168, 85, 247, 0.4)",
-    }}
-    whileTap={{ scale: 0.95 }}
-    className={`${ButtonStyles} px-10 py-3 bg-white/10 border border-white/30 flex items-center gap-2`}
-  >
-    <span>📄</span> View Resume
-  </motion.a>
+  href="/images/Resume_Atharv.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  whileHover={{
+    scale: 1.05,
+    boxShadow: "0 0 25px rgba(168,85,247,.45)",
+  }}
+  whileTap={{ scale: 0.97 }}
+  className="group inline-flex items-center gap-3
+             px-8 py-4 rounded-full
+             bg-gradient-to-r from-purple-600 to-blue-600
+             hover:from-purple-700 hover:to-blue-700
+             text-white font-semibold
+             transition-all duration-300 shadow-xl"
+>
+  <FileDown className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
+  Download Resume
+</motion.a>
 );
 
 const Hero = () => {
-  const roleText = "MERN Stack Developer";
+  const roleText = "Full Stack Developer";
 
   return (
     <section
       id="home"
       className="min-h-screen relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900"
     >
-      {/* Background Layer */}
+      
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-800/20 via-black to-gray-900" />
         <div className="absolute inset-0 bg-[size:60px_60px] bg-[linear-gradient(to_right,_rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(to_bottom,_rgba(255,255,255,0.02)_1px,transparent_1px)]" />
       </div>
 
-      {/* Floating Decorative Icons */}
+      
       <div className="absolute inset-0 pointer-events-none">
         <motion.div animate={{ y: [0, -20, 0] }} transition={{ duration: 4, repeat: Infinity }} className="absolute top-1/4 left-1/4">
            <Terminal className="text-white/5 w-24 h-24" />
@@ -88,7 +91,7 @@ const Hero = () => {
       >
         <div className="text-center flex flex-col items-center">
 
-          {/* Profile Image */}
+          
           <div className="relative inline-block mb-8">
             <motion.div 
               initial={{ scale: 0.5, opacity: 0 }}
@@ -105,7 +108,7 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Name */}
+          
           <motion.h1
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -115,8 +118,6 @@ const Hero = () => {
           >
             Hi, I'm Atharv
           </motion.h1>
-
-          {/* 🔥 UPDATED ROLE – Staggered Letter Reveal */}
           <motion.div
             variants={sentence}
             initial="hidden"
@@ -135,19 +136,19 @@ const Hero = () => {
             ))}
           </motion.div>
 
-          {/* Badges */}
+          
           <div className="flex justify-center gap-4 mt-8 mb-8 flex-wrap">
             <span className="px-4 py-2 rounded-full bg-purple-500/10
                              text-purple-400 border border-purple-500/30 text-sm font-medium">
-              💻 MERN Stack Developer
+              ⚛️ React • Node.js • MongoDB
             </span>
             <span className="px-4 py-2 rounded-full bg-blue-500/10
                              text-blue-400 border border-blue-500/30 text-sm font-medium">
-              🚀 DSA & Tech Enthusiast
+              🚀 Java • DSA
             </span>
           </div>
 
-          {/* Intro Card */}
+          
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -160,11 +161,10 @@ const Hero = () => {
               <span className="text-white font-semibold">
                 Atharv Marathe
               </span>
-              , a Final-Year Computer Engineering student and passionate MERN Stack Developer focused on building modern, scalable, and user-friendly web applications while continuously improving my problem-solving and development skills.
+              , a Final-Year Computer Engineering student passionate about building scalable full-stack web applications using the MERN stack. I'm also familiar with Java backend development and enjoy solving DSA problems while continuously improving my technical skills.
                 </p>
           </motion.div>
 
-          {/* Resume & Socials */}
           <div className="flex flex-col items-center gap-8">
             <DownloadCVButton />
 

@@ -8,7 +8,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Home");
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  // Auto-hide states
+  
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -60,7 +60,7 @@ const Navbar = () => {
           }
         `}
       >
-        {/* Scroll Progress */}
+        
         <div
           className="absolute top-0 left-0 h-[2px] bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500"
           style={{ width: `${scrollProgress}%` }}
@@ -69,7 +69,7 @@ const Navbar = () => {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex items-center justify-between h-14">
 
-            {/* Logo */}
+            
             <motion.a
               href="#home"
               className="flex items-center gap-3 group"
@@ -91,7 +91,7 @@ const Navbar = () => {
               </div>
             </motion.a>
 
-            {/* Desktop Links */}
+            
             <div className="hidden lg:flex items-center gap-2">
               {navLinks.map((link) => (
                 <a
@@ -116,7 +116,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Right Icons */}
+            
             <div className="hidden md:flex items-center gap-4 border-r border-white/10 pr-6">
               <motion.a
                 whileHover={{ y: -2, color: "#a855f7" }}
@@ -136,7 +136,7 @@ const Navbar = () => {
               </motion.a>
             </div>
 
-            {/* Mobile Toggle */}
+            
             <div className="lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -148,7 +148,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* ✅ SMALLER MOBILE MENU */}
+        
         <AnimatePresence>
           {isOpen && (
             <motion.div

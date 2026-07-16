@@ -34,13 +34,13 @@ const About = () => {
       id="about"
       className="py-14 relative overflow-hidden bg-[#030014] flex flex-col items-center"
     >
-      {/* Background Glow */}
+      
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-purple-600/10 rounded-full blur-[120px]" />
       </div>
 
       <div className="relative max-w-4xl mx-auto px-6 text-center">
-        {/* Header */}
+        
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ const About = () => {
           />
         </motion.div>
 
-        {/* Main Card */}
+        
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
