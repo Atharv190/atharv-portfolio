@@ -30,8 +30,7 @@ const letter = {
   },
 };
 
-const ButtonStyles =
-  "rounded-full font-semibold text-white select-none cursor-pointer transition-all duration-300";
+
 
 const DownloadCVButton = () => (
   <motion.a
