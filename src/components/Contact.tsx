@@ -72,7 +72,7 @@ const Contact = () => {
 
           <div className="relative bg-[#0b0b1a]/80 backdrop-blur-xl rounded-2xl border border-white/10 overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-2">
-              
+
               {/* Left Side */}
               <div className="p-6 md:p-8 bg-black/30 border-b md:border-b-0 md:border-r border-white/10">
                 <h3 className="text-lg font-semibold text-white mb-6">
@@ -121,7 +121,7 @@ const Contact = () => {
                     <input
                       type="text"
                       placeholder="Atharv Marathe"
-                      className="w-full px-3.5 py-2.5 bg-black/30 border border-white/10 rounded-lg text-sm text-white outline-none focus:border-purple-500/50 transition-all placeholder:text-gray-600"
+                      className="w-full px-3.5 py-2.5 bg-black/30 border border-white/10 rounded-lg text-base md:text-sm text-white outline-none focus:border-purple-500/50 transition-all placeholder:text-gray-600"
                     />
                   </div>
 
@@ -132,7 +132,7 @@ const Contact = () => {
                     <input
                       type="email"
                       placeholder="atharv@example.com"
-                      className="w-full px-3.5 py-2.5 bg-black/30 border border-white/10 rounded-lg text-sm text-white outline-none focus:border-purple-500/50 transition-all placeholder:text-gray-600"
+                      className="w-full px-3.5 py-2.5 bg-black/30 border border-white/10 rounded-lg text-base md:text-sm text-white outline-none focus:border-purple-500/50 transition-all placeholder:text-gray-600"
                     />
                   </div>
 
@@ -143,7 +143,7 @@ const Contact = () => {
                     <textarea
                       rows={3}
                       placeholder="How can I help you?"
-                      className="w-full px-3.5 py-2.5 bg-black/30 border border-white/10 rounded-lg text-sm text-white outline-none focus:border-purple-500/50 transition-all placeholder:text-gray-600 resize-none"
+                      className="w-full px-3.5 py-2.5 bg-black/30 border border-white/10 rounded-lg text-base md:text-sm text-white outline-none focus:border-purple-500/50 transition-all placeholder:text-gray-600 resize-none"
                     />
                   </div>
 

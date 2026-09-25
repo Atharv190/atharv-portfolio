@@ -205,7 +205,10 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -6 }}
-              className="rounded-xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 hover:border-purple-500/50 transition-all duration-300 flex flex-col h-full"
+              className={`rounded-xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 hover:border-purple-500/50 hover:shadow-[0_0_25px_rgba(168,85,247,0.15)] transition-all duration-300 flex flex-col h-full ${index === projects.length - 1 && projects.length % 2 !== 0
+                  ? "sm:col-span-2 sm:max-w-xl sm:mx-auto w-full"
+                  : ""
+                }`}
             >
               <div className="relative h-48 sm:h-56 md:h-60 flex-shrink-0 bg-gray-800">
                 <img
@@ -261,7 +264,7 @@ const Projects = () => {
                     onMouseEnter={() => setActiveTooltip(index)}
                     onMouseLeave={() => setActiveTooltip(null)}
                   >
-                    <p className="text-gray-400 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                    <p className="text-gray-300 text-xs sm:text-sm leading-relaxed line-clamp-3">
                       {project.description}
                     </p>
 
@@ -282,7 +285,7 @@ const Projects = () => {
                       return (
                         <span
                           key={i}
-                          className="inline-flex items-center gap-1 sm:gap-1.5 px-1.5 sm:px-2.5 py-0.5 text-[9px] sm:text-xs rounded-full bg-white/5 text-gray-300 border border-white/10"
+                          className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 py-1 text-[10px] sm:text-xs rounded-full bg-white/10 text-gray-200 border border-white/20 shadow-sm"
                         >
                           {IconComponent && (
                             <IconComponent
@@ -298,16 +301,15 @@ const Projects = () => {
                     })}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-medium text-gray-300 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition"
+                      className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 text-[11px] sm:text-xs font-medium text-gray-300 bg-transparent hover:bg-white/5 border border-white/20 rounded-full transition"
                     >
-                      <Github className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-                      <span className="hidden xs:inline">Code</span>
-                      <span className="xs:hidden">Git</span>
+                      <Github className="h-4 w-4" />
+                      <span>Code</span>
                     </a>
 
                     {project.liveLink && (
@@ -315,22 +317,20 @@ const Projects = () => {
                         href={project.liveLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white text-[10px] sm:text-xs font-medium rounded-full transition shadow-lg"
+                        className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white text-[11px] sm:text-xs font-medium rounded-full transition shadow-[0_4px_14px_0_rgba(168,85,247,0.39)] hover:shadow-[0_6px_20px_rgba(168,85,247,0.23)] hover:-translate-y-0.5"
                       >
-                        <ExternalLink className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-                        <span className="hidden xs:inline">Live Demo</span>
-                        <span className="xs:hidden">Live</span>
+                        <ExternalLink className="h-4 w-4" />
+                        <span>Live Demo</span>
                       </a>
                     )}
 
                     {project.video && (
                       <button
                         onClick={() => setActiveVideo(project.video!)}
-                        className="flex items-center gap-1 sm:gap-1.5 px-3 sm:px-4 py-1 sm:py-1.5 bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 text-[10px] sm:text-xs font-medium rounded-full transition border border-purple-500/30"
+                        className="flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 bg-purple-500/20 hover:bg-purple-500/30 text-purple-300 hover:text-purple-200 text-[11px] sm:text-xs font-medium rounded-full transition border border-purple-500/30"
                       >
-                        <PlayCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-                        <span className="hidden xs:inline">Demo</span>
-                        <span className="xs:hidden">▶</span>
+                        <PlayCircle className="h-4 w-4" />
+                        <span>Demo</span>
                       </button>
                     )}
                   </div>

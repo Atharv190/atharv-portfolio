@@ -8,7 +8,7 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Home");
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  
+
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -35,6 +35,31 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            if (id) {
+              const capitalizedName = id.charAt(0).toUpperCase() + id.slice(1);
+              if (["Home", "About", "Qualification", "Projects", "Skills", "Contact"].includes(capitalizedName)) {
+                setActiveSection(capitalizedName);
+              }
+            }
+          }
+        });
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: 0.1 }
+    );
+
+    document.querySelectorAll("section[id], div[id='home']").forEach((section) => {
+      observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
@@ -53,14 +78,13 @@ const Navbar = () => {
     >
       <nav
         className={`relative w-full transition-all duration-500
-          ${
-            scrolled
-              ? "bg-gradient-to-r from-black/60 via-[#0b0b1a]/60 to-black/60 backdrop-blur-2xl border-b border-white/10 shadow-2xl"
-              : "bg-transparent border-b border-transparent"
+          ${scrolled
+            ? "bg-black/80 backdrop-blur-3xl border-b border-white/10 shadow-2xl"
+            : "bg-transparent border-b border-transparent"
           }
         `}
       >
-        
+
         <div
           className="absolute top-0 left-0 h-[2px] bg-gradient-to-r from-purple-500 via-blue-500 to-purple-500"
           style={{ width: `${scrollProgress}%` }}
@@ -69,7 +93,7 @@ const Navbar = () => {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex items-center justify-between h-14">
 
-            
+
             <motion.a
               href="#home"
               className="flex items-center gap-3 group"
@@ -91,7 +115,7 @@ const Navbar = () => {
               </div>
             </motion.a>
 
-            
+
             <div className="hidden lg:flex items-center gap-2">
               {navLinks.map((link) => (
                 <a
@@ -99,10 +123,9 @@ const Navbar = () => {
                   href={link.href}
                   onClick={() => setActiveSection(link.name)}
                   className={`relative px-5 py-2 text-[13px] font-bold uppercase tracking-widest transition-all
-                    ${
-                      activeSection === link.name
-                        ? "text-white"
-                        : "text-gray-300 hover:text-white"
+                    ${activeSection === link.name
+                      ? "text-white"
+                      : "text-gray-300 hover:text-white"
                     }`}
                 >
                   {activeSection === link.name && (
@@ -116,39 +139,49 @@ const Navbar = () => {
               ))}
             </div>
 
-            
-            <div className="hidden md:flex items-center gap-4 border-r border-white/10 pr-6">
+
+            <div className="hidden md:flex items-center gap-6">
+              <div className="flex items-center gap-4">
+                <motion.a
+                  whileHover={{ y: -2, color: "#a855f7" }}
+                  href="https://github.com/Atharv190"
+                  target="_blank"
+                  className="text-gray-300"
+                >
+                  <Github size={18} />
+                </motion.a>
+                <motion.a
+                  whileHover={{ y: -2, color: "#3b82f6" }}
+                  href="https://www.linkedin.com/in/atharvmarathe19"
+                  target="_blank"
+                  className="text-gray-300"
+                >
+                  <Linkedin size={18} />
+                </motion.a>
+              </div>
               <motion.a
-                whileHover={{ y: -2, color: "#a855f7" }}
-                href="https://github.com/Atharv190"
-                target="_blank"
-                className="text-gray-300"
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="hidden lg:flex px-5 py-2.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full text-white text-[11px] font-bold uppercase tracking-widest relative overflow-hidden shadow-[0_0_15px_rgba(168,85,247,0.4)]"
               >
-                <Github size={18} />
-              </motion.a>
-              <motion.a
-                whileHover={{ y: -2, color: "#3b82f6" }}
-                href="https://www.linkedin.com/in/atharvmarathe19"
-                target="_blank"
-                className="text-gray-300"
-              >
-                <Linkedin size={18} />
+                Let's Talk
               </motion.a>
             </div>
 
-            
+
             <div className="lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 text-gray-300 hover:text-white"
+                className="p-2 min-h-[48px] min-w-[48px] flex items-center justify-center text-gray-300 hover:text-white"
               >
-                {isOpen ? <X size={22} /> : <Menu size={22} />}
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </div>
         </div>
 
-        
+
         <AnimatePresence>
           {isOpen && (
             <motion.div
